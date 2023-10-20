@@ -1,0 +1,9 @@
+# Local files
+README.md
+
+# Database
+data
+
+# Docker
+docker/Dockerfile
+.dockerignore

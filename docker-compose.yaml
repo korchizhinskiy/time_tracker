@@ -1,0 +1,58 @@
+version: '3.0'
+
+services:
+  database:
+    image: postgres:15.3-alpine
+    container_name: tuva-database
+    hostname: database
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    env_file:
+      - .env
+    expose: 
+      - 5432
+
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/opt
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    entrypoint: bash ./script/entrypoint.sh server
+    restart: always
+      
+  redis:
+    image: redis:5
+    expose: 
+      - 6379
+
+  celery_worker:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - server
+      - redis
+    entrypoint: bash ./script/celery.sh worker
+        
+  flower:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: tuva-celery_flower
+    hostname: celery_flower
+    env_file:
+      - .env
+    ports:
+      - 5555:5555
+    depends_on:
+      - integration
+      - redis
+      - celery_worker
+    entrypoint: bash ./script/celery.sh flower
