@@ -2,11 +2,8 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "integration": {
+        "console": {
             "format": "[%(asctime)s - %(name)s - %(levelname)s] at %(funcName)s() => %(message)s",
-        },
-        "celery": {
-            "format": "%(asctime)s [%(levelname)s] <PID %(process)d:%(processName)s> at %(funcName)s() => %(message)s",
         },
     },
     "handlers": {
