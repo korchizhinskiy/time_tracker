@@ -15,17 +15,7 @@ class Settings(BaseSettings):
     DATABASE_PASSWORD: str = "postgres"
     DATABASE_NAME: str = "postgres"
 
-    TEST_DATABASE_HOST: str = "database"
-    TEST_DATABASE_PORT: int = 5432
-    TEST_DATABASE_USER: str = "postgres"
-    TEST_DATABASE_PASSWORD: str = "postgres"
-    TEST_DATABASE_NAME: str = "test_db"
-
     POSTGRES_PASSWORD: str = "postgres"
-
-    REDIS_BROKER_URL: str = "redis://redis:6379/0"
-
-    NAMESPACE: str = "urn:sd-praktika:api"
 
 
 @lru_cache
