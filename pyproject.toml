@@ -1,57 +1,29 @@
 [tool.poetry]
-name = "tuva-integration"
-version = "0.1.1"
-description = "Integration service for integrate with Practic API."
+name = "progbib"
+version = "0.1.0"
+description = ""
 authors = ["korchizhinskiy <korchizhinskiy@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.11.6"
-fastapi = "^0.103.2"
-celery = "^5.3.4"
-sqlalchemy = "^2.0.21"
-asyncpg = "^0.28.0"
-pydantic-settings = "^2.0.3"
-pydantic = "^2.4.2"
-uvicorn = "^0.23.2"
-redis = "^5.0.1"
-flower = "^2.0.1"
-alembic = "^1.12.0"
-pytest = "^7.4.2"
-pytest-asyncio = "^0.21.1"
+python = "^3.12"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+fastapi = "^0.109.0"
+uvicorn = "^0.26.0"
 
 [tool.poetry.group.dev.dependencies]
-isort = "^5.12.0"
-black = "^23.9.1"
-ruff = "^0.0.292"
-pyright = "^1.1.329"
-celery-types = "^0.20.0"
-lxml-stubs = "^0.4.0"
-ipython = "^8.16.1"
-pre-commit = "^3.4.0"
-
+ruff = "^0.1.14"
+pyright = "^1.1.347"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
-[tool.pyright]
-venv = ".venv"
-venvPath = "."
-include = [
-    "app",
-]
-defineConstant = { DEBUG = true }
-
-reportMissingImports = true
-reportMissingTypeStubs = true
-
-pythonVersion = "3.11.6"
-pythonPlatform = "Linux"
-
 [tool.ruff]
 line-length = 120
+target-version = "py312"
+
 select = [
  "F", # Pyflakes 
  "E", # Pycodestyle | Error
@@ -125,13 +97,22 @@ ignore = [
   "D106", # Missing docstring in public nested class  
   "D107", # Missing docstring in __init__
   "ANN101", # Missing type annotation for `self` in method
+  "D202", # No blank lines allowed after function docstring (found 1)
   "D203", # 1 blank line required before class docstring
+  "D212", # Multi-line docstring summary should start at the first line
+  "ANN002", # Missing type annotation for `*args`
+  "ANN003", # Missing type annotation for `**kwargs`
   "ANN101", # Missing type annotation for `self` in method
   "ANN102", # Missing type annotation for `cls` in classmethod
   "FIX002", # Line contains TODO, consider resolving the issue
   "TD003", # Missing issue link on the line following this TODO
+  "RUF001", # String contains ambiguous
+  "RUF002", # String contains ambiguous
+  "RUF003", # String contains ambiguous
+  "W293", # Blank line contains whitespace
+  "G004", # Logging statement uses f-string
+  "COM812", # Trailing comma missing
   ]
-
 exclude = [
     ".bzr",
     ".direnv",
@@ -156,28 +137,26 @@ exclude = [
     "venv",
     "migrations",
 ]
-target-version = "py311"
-
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.per-file-ignores]
-"app/tests/**/*.py" = [
-    "S101", # Use of `assert` detected
+[tool.pyright]
+venv = ".venv"
+venvPath = "."
+include = [
+    "app",
 ]
+exclude = [
+    "**/migrations",
+    "**/__pycache__",
+]
+defineConstant = { DEBUG = true }
 
-[tool.ruff.flake8-annotations]
-allow-star-arg-any = true
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportIncompatibleVariableOverride = "none"
+reportIncompatibleMethodOverride = "none"
+reportPrivateUsage = "error"
 
-[tool.ruff.flake8-gettext]
-function-names = ["_", "gettext", "ngettext", "ugettetxt"]
-
-[tool.black]
-line-length = 120
-exclude = '''(\.git|\.hg|\.mypy_cache|\.tox|\.venv|_build|buck-out|build|dist|^.*\b(migrations)\b.*$)'''
-
-[tool.isort]
-line_length = 120
-profile="black"
-
-
+pythonVersion = "3.12.1"
+pythonPlatform = "Linux"
