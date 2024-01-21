@@ -10,7 +10,7 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
             "level": "INFO",
-            "formatter": "integration",
+            "formatter": "console",
             "stream": "ext://sys.stdout",
         },
     },
