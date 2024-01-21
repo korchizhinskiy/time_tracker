@@ -20,3 +20,6 @@ postgres/
 
 # Programms
 .idea
+
+# Poetry 
+.python-version
