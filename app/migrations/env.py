@@ -6,7 +6,8 @@ from alembic import context
 from sqlalchemy import engine_from_config, pool
 
 from app.database import DATABASE_URL
-from app.models import Base
+from app.database import Base
+from app.book.models import *
 
 sys.path.insert(0, Path(__file__).resolve().parent.parent.parent.__str__())
 
