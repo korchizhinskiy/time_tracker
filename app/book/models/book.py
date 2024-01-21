@@ -16,4 +16,8 @@ class Book(Base):
     uuid: Mapped[UUID] = mapped_column(primary_key=True, default=uuid7)
 
     title: Mapped[str]
+    publish_year: Mapped[int]
+    page_count: Mapped[int]
+    weight: Mapped[int | None]
+
     category: Mapped["BookCategory"] = relationship(back_populates="books")
