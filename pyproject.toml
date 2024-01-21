@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "progbib"
+name = "proglib"
 version = "0.1.0"
 description = ""
 authors = ["korchizhinskiy <korchizhinskiy@gmail.com>"]
@@ -11,10 +11,13 @@ pydantic = "^2.5.3"
 pydantic-settings = "^2.1.0"
 fastapi = "^0.109.0"
 uvicorn = "^0.26.0"
+sqlalchemy = "^2.0.25"
+uuid7 = "^0.1.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.14"
 pyright = "^1.1.347"
+ipython = "^8.20.0"
 
 [build-system]
 requires = ["poetry-core"]
