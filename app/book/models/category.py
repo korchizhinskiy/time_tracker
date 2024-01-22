@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 
 class BookCategory(Base):
-    __tablename__ = "book_category"
+    __tablename__ = "book_categories"
 
-    uuid: Mapped[UUID] = mapped_column(primary_key=True, default=uuid7)
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid7)
 
     name: Mapped[str] = mapped_column(unique=True)
 
