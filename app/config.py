@@ -5,17 +5,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="allow")
 
     MODE: Literal["DEV", "TEST", "PROD"] = "DEV"
 
-    DATABASE_HOST: str = "database"
-    DATABASE_PORT: int = 5432
-    DATABASE_USER: str = "postgres"
-    DATABASE_PASSWORD: str = "postgres"
-    DATABASE_NAME: str = "postgres"
-
-    POSTGRES_PASSWORD: str = "postgres"
+    MONGO_HOST: str = "mongo"
+    MONGO_PORT: int = 27017
+    MONGO_USER: str = "mongo"
+    MONGO_PASSWORD: str = "mongo"
+    MONGO_NAME: str = "mongo"
 
 
 @lru_cache

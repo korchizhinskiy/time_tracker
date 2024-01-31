@@ -17,6 +17,7 @@ logs/
 # Database
 data/
 postgres/
+mongodb/
 
 # Programms
 .idea

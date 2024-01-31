@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "proglib"
+name = "skip-messages-integrator"
 version = "0.1.0"
 description = ""
 authors = ["korchizhinskiy <korchizhinskiy@gmail.com>"]
@@ -11,10 +11,7 @@ pydantic = "^2.5.3"
 pydantic-settings = "^2.1.0"
 fastapi = "^0.109.0"
 uvicorn = "^0.26.0"
-sqlalchemy = "^2.0.25"
-uuid7 = "^0.1.0"
-alembic = "^1.13.1"
-asyncpg = "^0.29.0"
+motor = "^3.3.2"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.14"
@@ -143,6 +140,10 @@ exclude = [
     "venv",
     "migrations",
 ]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
