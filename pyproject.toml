@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "skip-messages-integrator"
+name = "time-tracker"
 version = "0.1.0"
 description = ""
 authors = ["korchizhinskiy <korchizhinskiy@gmail.com>"]
