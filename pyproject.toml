@@ -12,6 +12,7 @@ pydantic-settings = "^2.1.0"
 fastapi = "^0.109.0"
 uvicorn = "^0.26.0"
 motor = "^3.3.2"
+bjson = "^0.2.9"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.14"

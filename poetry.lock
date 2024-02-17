@@ -69,6 +69,16 @@ tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
 tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist[psutil]"]
 
 [[package]]
+name = "bjson"
+version = "0.2.9"
+description = "Alternative way to send Python3 object by binary."
+optional = false
+python-versions = "*"
+files = [
+    {file = "bjson-0.2.9.tar.gz", hash = "sha256:fd7d4624982af0727359b5241d3f4c9a7dca30ad5c6da0a50007384a70f3a24a"},
+]
+
+[[package]]
 name = "cattrs"
 version = "23.2.3"
 description = "Composable complex class support for attrs and dataclasses."
@@ -899,4 +909,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "0b3a3f802136ca73e419485c843ce4a0016bcd9ede38b1a76f203e8f73a58a01"
+content-hash = "778b9d17cce12d5599cad0588f9993cd20f2c65d421790d1339059e51f48add4"
