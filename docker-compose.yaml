@@ -5,7 +5,7 @@ services:
     image: mongo:6.0.13
     volumes:
       - ./mongodb:/data/db
-    container_name: mongodb
+    container_name: time_tracker-mongodb
     env_file:
       - .env
     ports: 
@@ -15,9 +15,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    container_name: backend
+    container_name: time_tracker-backend
     volumes:
-      - ./app:/opt/app
+      - app:/opt/app
     ports:
       - 8000:8000
     env_file:
