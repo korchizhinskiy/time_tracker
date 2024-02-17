@@ -142,7 +142,12 @@ exclude = [
 ]
 
 [tool.ruff.lint.flake8-bugbear]
-extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+extend-immutable-calls = [
+    "fastapi.param_functions.Depends",
+    "fastapi.Depends",
+    "fastapi.param_functions.Query",
+    "fastapi.Query",
+]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
