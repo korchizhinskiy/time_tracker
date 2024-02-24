@@ -109,6 +109,7 @@ ignore = [
   "ANN101", # Missing type annotation for `self` in method
   "ANN102", # Missing type annotation for `cls` in classmethod
   "FIX002", # Line contains TODO, consider resolving the issue
+  "TD002", # Missing author in TODO
   "TD003", # Missing issue link on the line following this TODO
   "RUF001", # String contains ambiguous
   "RUF002", # String contains ambiguous
